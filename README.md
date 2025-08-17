@@ -26,6 +26,7 @@ A **Flask-based web application** that analyzes the sentiment of user-provided t
 ---
 -------
 # Project Structure
+```
 sentiment-analysis-app/
 ├── static/
 │ ├── css/
@@ -38,7 +39,7 @@ sentiment-analysis-app/
 ├── requirements.txt
 ├── README.md
 └── sentiment_model.py
-
+```
 -------
 ## ⚙️ Installation
 
