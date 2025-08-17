@@ -27,7 +27,7 @@ A **Flask-based web application** that analyzes the sentiment of user-provided t
 -------
 # Project Structure
 ```
-sentiment-analysis-app/
+sentiment-analysis-python-flask/
 ├── static/
 │ ├── css/
 │ │ └── style.css
