@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-smile"></i> Sentiment Analysis Tool</h1>
+            <p>Analyze the sentiment of your customer feedback, reviews, or any text</p>
+        </header>
+
+        <main>
+            <form id="sentiment-form" method="POST">
+                <div class="form-group">
+                    <label for="feedback-text">Enter your feedback text:</label>
+                    <textarea id="feedback-text" name="feedback-text" rows="5" required placeholder="Type or paste your text here...">{{ text if text else '' }}</textarea>
+                </div>
+                <button type="submit" class="analyze-btn">
+                    <i class="fas fa-chart-bar"></i> Analyze Sentiment
+                </button>
+            </form>
+
+            {% if show_result %}
+            <div class="result-container">
+                <h2>Analysis Results</h2>
+                
+                <div class="sentiment-display {{ sentiment.lower() }}">
+                    <div class="sentiment-icon">
+                        {% if sentiment == 'Positive' %}
+                            <i class="fas fa-smile-beam"></i>
+                        {% elif sentiment == 'Negative' %}
+                            <i class="fas fa-frown"></i>
+                        {% else %}
+                            <i class="fas fa-meh"></i>
+                        {% endif %}
+                    </div>
+                    <div class="sentiment-text">
+                        <h3>{{ sentiment }} Sentiment</h3>
+                        <p>"{{ text }}"</p>
+                    </div>
+                </div>
+
+                <div class="score-details">
+                    <h3>Detailed Scores:</h3>
+                    <div class="score-meters">
+                        <div class="score-meter">
+                            <h4>VADER Score</h4>
+                            <div class="meter">
+                                <div class="progress" style="width: {{ (vader_score + 1) * 50 }}%;"></div>
+                                <span>{{ "%.3f"|format(vader_score) }}</span>
+                            </div>
+                            <p>(-1 = Negative, 0 = Neutral, +1 = Positive)</p>
+                        </div>
+                        <div class="score-meter">
+                            <h4>TextBlob Score</h4>
+                            <div class="meter">
+                                <div class="progress" style="width: {{ (textblob_score + 1) * 50 }}%;"></div>
+                                <span>{{ "%.3f"|format(textblob_score) }}</span>
+                            </div>
+                            <p>(-1 = Negative, 0 = Neutral, +1 = Positive)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </main>
+
+        <footer>
+            <p>© 2023 Sentiment Analysis Tool | Powered by Flask, TextBlob, and VADER</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
