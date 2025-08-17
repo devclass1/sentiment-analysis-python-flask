@@ -24,7 +24,22 @@ A **Flask-based web application** that analyzes the sentiment of user-provided t
 - Font Awesome Icons  
 
 ---
+-------
+# Project Structure
+sentiment-analysis-app/
+├── static/
+│ ├── css/
+│ │ └── style.css
+│ └── js/
+│ └── script.js
+├── templates/
+│ └── index.html
+├── app.py
+├── requirements.txt
+├── README.md
+└── sentiment_model.py
 
+-------
 ## ⚙️ Installation
 
 1. **Clone the repository**
