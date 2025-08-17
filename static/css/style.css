@@ -1,0 +1,244 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --positive-color: #4cc9f0;
+    --negative-color: #f72585;
+    --neutral-color: #7209b7;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #6c757d;
+    --success-color: #38b000;
+    --warning-color: #ffaa00;
+    --danger-color: #ef233c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f7fa;
+    color: var(--dark-color);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--gray-color);
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 150px;
+    transition: border 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.analyze-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.analyze-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.result-container {
+    margin-top: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.result-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.sentiment-display {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.sentiment-display.positive {
+    background-color: rgba(76, 201, 240, 0.1);
+    border-left: 5px solid var(--positive-color);
+}
+
+.sentiment-display.negative {
+    background-color: rgba(247, 37, 133, 0.1);
+    border-left: 5px solid var(--negative-color);
+}
+
+.sentiment-display.neutral {
+    background-color: rgba(114, 9, 183, 0.1);
+    border-left: 5px solid var(--neutral-color);
+}
+
+.sentiment-icon {
+    font-size: 3rem;
+}
+
+.sentiment-display.positive .sentiment-icon {
+    color: var(--positive-color);
+}
+
+.sentiment-display.negative .sentiment-icon {
+    color: var(--negative-color);
+}
+
+.sentiment-display.neutral .sentiment-icon {
+    color: var(--neutral-color);
+}
+
+.sentiment-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.sentiment-text p {
+    color: var(--gray-color);
+    font-style: italic;
+}
+
+.score-details h3 {
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.score-meters {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.score-meter {
+    margin-bottom: 1rem;
+}
+
+.score-meter h4 {
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+}
+
+.meter {
+    height: 30px;
+    background-color: #eee;
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.meter .progress {
+    height: 100%;
+    border-radius: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.positive .meter .progress {
+    background-color: var(--positive-color);
+}
+
+.negative .meter .progress {
+    background-color: var(--negative-color);
+}
+
+.neutral .meter .progress {
+    background-color: var(--neutral-color);
+}
+
+.meter span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-weight: bold;
+}
+
+.score-meter p {
+    color: var(--gray-color);
+    font-size: 0.9rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    color: var(--gray-color);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .sentiment-display {
+        flex-direction: column;
+        text-align: center;
+    }
+}
